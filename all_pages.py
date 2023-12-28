@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from main import scrap
+from scrapper import scrap
 def scrap_category(url, category_name):
 
     page = requests.get(url)
