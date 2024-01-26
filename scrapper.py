@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 def scrap(url, category_name):
-
+    '''Extracts datas from booktoscrape.com'''
 
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -11,9 +11,9 @@ def scrap(url, category_name):
     url = url.replace("http://books.toscrape.com/catalogue/category/books/", "")
     url = url.replace("/index.html", "")
 
-
     print(category_name)
 
+    #title
     title = soup.h1
     print(title.string)
 
@@ -35,7 +35,6 @@ def scrap(url, category_name):
     # description
     product = soup.find_all("p")
     description = product[3]
-    print("\n" + description.string)
 
     # rate
     ratings = soup.find_all("p", {"class": "star-rating"})
@@ -72,8 +71,7 @@ def scrap(url, category_name):
     # This file would store the data of the image file
 
     # category/img.jpg
-    # TODO:call img with book name !
-    f = open(category_name + '/' + title.string +'.jpg', 'wb')
+    f = open(category_name + '/' + title.string + '.jpg', 'wb')
 
     # Storing the image data inside the data variable to the file
     f.write(data)

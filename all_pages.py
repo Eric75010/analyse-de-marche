@@ -1,20 +1,25 @@
 import requests
 from bs4 import BeautifulSoup
 from scrapper import scrap
-def scrap_category(url, category_name):
 
+
+def scrap_category(url, category_name):
+    '''Extracts datas from bookToScrape.com by category'''
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
-    #category name extract from url..
+
+    # category name extract from url
     url = url.replace("http://books.toscrape.com/catalogue/category/books/", "")
     url = url.replace("/index.html", "")
     print(category_name)
 
+    # finds all categories
     category_links = soup.find_all("h1", {"class": "page-header action"})
     print(category_links)
 
     page_number = soup.find("li", {"class": "current"})
 
+    #except errors when there is only one page
     try:
         x = page_number.string.strip()
 
@@ -42,4 +47,3 @@ def scrap_category(url, category_name):
             print(url)
 
     return found_books_details
-
