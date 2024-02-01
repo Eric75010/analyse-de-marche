@@ -19,15 +19,16 @@ https://github.com/Eric75010/analyse-de-marche/edit/master
 
 ## Fonctions
 ```
-main.py: scrapper les informations des livres
+extract_book_data_for_detail_page.py: scrapper les informations des livres
 
-all_pages.py: scrapper les informations de toutes les pages par catégorie
+extract_book_data_for_category.py: scrapper les informations de toutes les pages par catégorie
 
 csv_generator.py: créer un fichier csv à partir des informations scrappées
 ```
 
 
 ## Exécuter la récupération de données
+
 ```
 python all_categories.py
 ```
