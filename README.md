@@ -30,5 +30,6 @@ csv_generator.py: créer un fichier csv à partir des informations scrappées
 ## Exécuter la récupération de données
 
 ```
-python all_categories.py
+python extract_book_data_for_categories.py
+
 ```

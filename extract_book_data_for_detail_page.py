@@ -31,16 +31,19 @@ def scrap_book_data(url, category_name):
     ratings = soup.find_all("p", {"class": "star-rating"})
     product_rating = ratings[0]
     string_rating = product_rating["class"][-1]
+    rating = 0
 
     match string_rating:
         case "One":
             rating = 1
-        case "two":
+        case "Two":
             rating = 2
-        case "three":
+        case "Three":
             rating = 3
-        case "four":
+        case "Four":
             rating = 4
+        case "Five":
+            rating = 5
 
     print(rating)
 
@@ -80,7 +83,7 @@ def scrap_book_data(url, category_name):
         "description": description.string,
         "star_rating": rating,
         "cover": image_link,
-        "upc": upc,
-        "tax": tax,
-        "review": review,
+        "upc": upc.string,
+        "tax": tax.string,
+        "review": review.string,
     }
